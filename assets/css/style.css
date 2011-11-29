@@ -77,6 +77,8 @@ html, body, #container, .home {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    position: fixed;
+    overflow-y: scroll;
 }
 
 body {
