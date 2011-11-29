@@ -1,27 +1,23 @@
-<div id="container">
-    <ul id="photos" class="clearfix">
+<div class="home">
+
+    <ul id="options">
         <?php
-        foreach($photos as $i => $photo) {
-            $show = $i % 5;
-            ?>
-            <li class="<?= $show == 0 ? 'time' : ''; ?>">
-                <a rel="timelapse" href="<?php echo assets().sprintf('resized/%s', getFilename($photo)); ?>">
-                    <div class="info">
-                        <?php
-                        $time = mktime($photo['hour'], $photo['minute'], $photo['second'], $photo['month'], $photo['day'], 2011);
-                        echo date('D. M j', $time).' at '.date('g:i a', $time);
-                        ?>
-                    </div>
-                    <img src="<?php echo assets().sprintf('thumbs/%s', getFilename($photo)); ?>"/>
+        $options = array(
+            array('title' => 'sunrises', 'route' => 'sunrises', 'img' => '2011_09_03_04_49_56.jpg'),
+            array('title' => 'sunsets', 'route' => 'sunsets', 'img' => '2011_09_01_19_13_21.jpg'),
+            array('title' => 'the burn', 'route' => 'burn', 'img' => '2011_09_03_20_55_57.jpg'),
+            array('title' => 'full set', 'full' => '', 'img' => '2011_08_25_11_13_12.jpg'),
+        );
+        foreach($options as $option) { ?>
+            <li>
+                <a href="<?= root().$option['route']; ?>">
+                    <span class="title"><?= ucwords($option['title']); ?></span>
+                    <img src="<?= assets().sprintf('thumbs/%s', $option['img']); ?>"/>
                 </a>
             </li>
             <?php
         }
         ?>
     </ul>
-    <a href="<?= root(); ?>:page=<?= $options['page'] + 1; ?>" class="next-page">Next</a>
-</div> <!--! end of #container -->
 
-<script type="text/javascript">
-    var page = '<?= $options['page']; ?>';
-</script>
+</div>

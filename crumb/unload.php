@@ -30,6 +30,8 @@ function assets() { return root().'assets/'; }
  */
 $routing = new routing(APP_BUILD_ROOT);
 $route = $routing->breakURI($_SERVER['REQUEST_URI'], BUILD_URI);
+define('REQUEST', $routing->request);
+function self() { return root().trim(REQUEST, DS); }
 $controller = $routing->getControllerName();
 $action = $routing->getActionName();
 $paramaters = $routing->getParamaters();

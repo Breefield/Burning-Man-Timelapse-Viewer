@@ -11,14 +11,16 @@ $(document).ready(function() {
         nextEffect: 'none',
     });
 
-    $('#photos').infinitescroll({
-        navSelector: 'a.next-page',
-        nextSelector: 'a.next-page',
-        itemSelector: '#photos li',
-        loading: {
-            img: 'assets/img/ajax-loader.gif',
-            finishedMsg: '',
-            msgText: ''
-        }
-    });
+    if($('a.next-page').length) {
+        $('#photos').infinitescroll({
+            navSelector: 'a.next-page',
+            nextSelector: 'a.next-page',
+            itemSelector: '#photos li',
+            loading: {
+                img: 'assets/img/ajax-loader.gif',
+                finishedMsg: '',
+                msgText: ''
+            }
+        });
+    }
 });

@@ -2,10 +2,9 @@
 class photos extends model {
 
     public $page_length = 100;
-
-    public function __construct() {
-        $this->start_time = 1314001860; //mktime(4, 31, 0, 8, 22, 2011);
-    }
+    public $full_days = 1314001860;
+    public $gates = 1314594000;
+    public $burn = array('start' => 1314853200, 'end' => 1315285200);
 
     public function all($options) {
         $query = sprintf('SELECT * FROM photos %s', $this->getLimit($options));
@@ -13,13 +12,22 @@ class photos extends model {
     }
 
     public function consolodated($options) {
-        // 2011_08_22_04_31_23.jpg
-        $query = sprintf('SELECT * FROM photos WHERE timestamp >= %d %s', $this->start_time, $this->getLimit($options));
+        $query = sprintf('SELECT * FROM photos WHERE timestamp >= %d %s', $this->full_days, $this->getLimit($options));
+        return $this->getFilenames($query);
+    }
+
+    public function burnWeek($options) {
+        $query = sprintf('SELECT * FROM photos WHERE timestamp >= %d AND timestamp <= %s', $this->burn['start'], $this->burn['end'], $this->getLimit($options));
         return $this->getFilenames($query);
     }
 
     public function sunrises($options) {
-        $query = sprintf('SELECT * FROM photos WHERE hour >= 4 AND hour <= 5 AND timestamp >= %d %s', $this->start_time, $this->getLimit($options));
+        $query = sprintf('SELECT * FROM photos WHERE hour >= 4 AND hour <= 5 AND timestamp >= %d %s', $this->full_days, $this->getLimit($options));
+        return $this->getFilenames($query);
+    }
+
+    public function sunsets($options) {
+        $query = sprintf('SELECT * FROM photos WHERE hour >= 18 AND hour <= 19 AND timestamp >= %d %s', $this->full_days, $this->getLimit($options));
         return $this->getFilenames($query);
     }
 
