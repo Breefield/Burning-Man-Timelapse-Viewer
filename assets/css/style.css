@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:700);
+
 /* HTML5 ✰ Boilerplate
  * ==|== normalize ==========================================================
  */
@@ -114,10 +116,12 @@ body {
     height: 0px;
     line-height: 0px;
     color: #FFF;
-    width: 100%;
+    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
     text-align: center;
     font-size: 32px;
-    font-weight: 800;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    letter-spacing: 2px;
+    width: 100%;
 }
 
 #options a:hover {
