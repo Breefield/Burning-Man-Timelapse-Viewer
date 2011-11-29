@@ -4,7 +4,7 @@ class photos extends model {
     public $page_length = 100;
     public $full_days = 1314001860;
     public $gates = 1314594000;
-    public $burn = array('start' => 1314853200, 'end' => 1315285200);
+    public $burn = array('start' => 1314590460, 'end' => 1315281364);
 
     public function all($options) {
         $query = sprintf('SELECT * FROM photos %s', $this->getLimit($options));
