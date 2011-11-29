@@ -17,7 +17,7 @@ class photos extends model {
     }
 
     public function burnWeek($options) {
-        $query = sprintf('SELECT * FROM photos WHERE timestamp >= %d AND timestamp <= %s', $this->burn['start'], $this->burn['end'], $this->getLimit($options));
+        $query = sprintf('SELECT * FROM photos WHERE timestamp >= %d AND timestamp <= %s %s', $this->burn['start'], $this->burn['end'], $this->getLimit($options));
         return $this->getFilenames($query);
     }
 

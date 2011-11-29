@@ -20,9 +20,9 @@
 </ul>
 
 <?php
-if(stripos(self(), 'burn') === false) {
+//if(stripos(self(), 'burn') === false) {
     ?>
     <a href="<?= self(); ?>:page=<?= $options['page'] + 1; ?>" class="next-page">Next</a>
     <?php
-}
+//}
 ?>
