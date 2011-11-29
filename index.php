@@ -40,8 +40,6 @@ define('CRUMB_MODE', 0);
 /* Include Path */
 set_include_path(get_include_path().PATH_SEPARATOR.'./'.PATH_SEPARATOR.'./'.APP_ROOT);
 
-error_log('Init');
-
 /* This brings everything together */
 require_once(CRUMB_DIR.'/unload.php');
 ?>

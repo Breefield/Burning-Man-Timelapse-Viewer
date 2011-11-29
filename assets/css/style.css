@@ -70,6 +70,21 @@ body {
     margin: 0px;
 }
 
+#header {
+    z-index: 100;
+    background: #333;
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 800;
+    padding: 10px 0px;
+    width: 100%;
+    position: fixed;
+}
+
+#header .content {
+    margin: 0px 10px;
+}
+
 ul#photos {
     list-style-type: none;
     padding: 0px;
@@ -80,10 +95,13 @@ ul#photos li {
     width: 20%;
     float: left;
     position: relative;
+    overflow: hidden;
 }
 
 ul#photos li a {
     text-decoration: none;
+    line-height: 0px;
+    height: 0px;
 }
 
 ul#photos li img {
@@ -107,8 +125,28 @@ ul#photos li .info {
     transition: opacity 250ms ease-out;
 }
 
-ul#photos li:hover .info {
+ul#photos li:hover .info/*, ul#photos li.time .info*/ {
     opacity: 1;
+}
+
+.next-page {
+    display: none;
+}
+
+#infscr-loading {
+    background: #FFF;
+    text-align: center;
+    padding: 20px 0px;
+    display: block;
+    clear: both;
+    position: fixed;
+    bottom: 0px;
+    z-index: 100%;
+    width: 100%;
+}
+
+#infscr-loading img {
+    display: inline-block;
 }
 
 /* ==|== non-semantic helper classes ======================================== */

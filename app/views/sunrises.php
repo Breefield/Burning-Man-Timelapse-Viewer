@@ -19,7 +19,7 @@
         }
         ?>
     </ul>
-    <a href="<?= root(); ?>:page=<?= $options['page'] + 1; ?>" class="next-page">Next</a>
+    <a href="<?= root(); ?>sunrises:page=<?= $options['page'] + 1; ?>" class="next-page">Next</a>
 </div> <!--! end of #container -->
 
 <script type="text/javascript">
