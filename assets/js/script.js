@@ -9,7 +9,30 @@ $(document).ready(function() {
         loop: false,
         prevEffect: 'none',
         nextEffect: 'none',
+        afterLoad: function() {
+            if(!$(this.element).hasClass('clicked')) {
+                sendAction(this.element.id, 'view');
+            } else {
+                $(this.element).removeClass('clicked');
+            }
+        }
     });
+
+    function sendAction(id, action) {
+        $.ajax({
+            url: root + 'clicks/' + action + ':photo=' + id
+        });
+    }
+
+    function afterLoad() {
+        $.each($('#photos .open'), function(i, el) {
+            $(el).unbind('click').bind('click', function() {
+                sendAction($(el).attr('id'), 'initial');
+                $(el).addClass('clicked');
+            });
+        });
+    }
+    afterLoad();
 
     if($('a.next-page').length) {
         $('#photos').infinitescroll({
@@ -21,6 +44,6 @@ $(document).ready(function() {
                 finishedMsg: '',
                 msgText: ''
             }
-        });
+        }, afterLoad);
     }
 });

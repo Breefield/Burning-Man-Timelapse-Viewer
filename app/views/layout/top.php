@@ -18,5 +18,8 @@
     <!-- end CSS-->
 
     <script src="<?= assets(); ?>js/libs/modernizr-2.0.6.min.js"></script>
+    <script>
+        var root = '<?= root(); ?>';
+    </script>
 </head>
 <body>

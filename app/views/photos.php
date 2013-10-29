@@ -2,16 +2,16 @@
     <?php
     foreach($photos as $i => $photo) {
         $show = $i % 5;
+        $time = mktime($photo['hour'], $photo['minute'], $photo['second'], $photo['month'], $photo['day'], 2011);
+        $formatted_time = date('D. M j', $time).' at '.date('g:i a', $time)
         ?>
         <li class="<?= $show == 0 ? 'time' : ''; ?>">
-            <a rel="timelapse" href="<?php echo assets().sprintf('resized/%s', getFilename($photo)); ?>">
+            <a id="<?= $photo['id']; ?>" class="open" rel="timelapse" href="<?php echo assets().sprintf('resized/%s', getFilename($photo)); ?>" title="<?= $formatted_time; ?>">
                 <div class="info">
-                    <?php
-                    $time = mktime($photo['hour'], $photo['minute'], $photo['second'], $photo['month'], $photo['day'], 2011);
-                    echo date('D. M j', $time).' at '.date('g:i a', $time);
-                    ?>
+                    <?= $formatted_time; ?>
                 </div>
-                <img src="<?php echo assets().sprintf('thumbs/%s', getFilename($photo)); ?>"/>
+                <img src="<?php echo assets().sprintf('thumbs/%s', getFilename($photo)); ?>" class="thumb"/>
+                <img src="<?php echo assets(); ?>img/fill.gif" class="fill"/>
             </a>
         </li>
         <?php

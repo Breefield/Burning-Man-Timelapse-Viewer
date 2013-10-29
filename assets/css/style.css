@@ -151,6 +151,10 @@ ul#photos li img {
     width: 100%;
 }
 
+ul#photos li img.thumb {
+    position: absolute;
+}
+
 ul#photos li .info {
     width: 100%;
     font-size: 14px;

@@ -6,4 +6,5 @@
  routing::addRoute('sunrises', 'index/sunrises');
  routing::addRoute('sunsets', 'index/sunsets');
  routing::addRoute('burn', 'index/burn');
+ routing::addRoute('clicks', 'handle_clicks');
 ?>
